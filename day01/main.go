@@ -7,7 +7,7 @@ import (
 	"slices"
 )
 
-const inputFilePath = "./input.txt"
+const inputFilePath = "./day01/input.txt"
 
 func check(err error) {
 	if err != nil {

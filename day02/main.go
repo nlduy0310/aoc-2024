@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const inputFilePath = "./input.txt"
+const inputFilePath = "./day02/input.txt"
 
 type Violation int
 
