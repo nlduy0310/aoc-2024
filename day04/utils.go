@@ -118,7 +118,7 @@ func searchCross(runesBoard [][]rune, row, col int, keyword string) bool {
 	height := len(runesBoard)
 	width := len(runesBoard[0])
 
-	if !(row >= 0 || col >= 0 || row < height || col < width) {
+	if !(row >= 0 && col >= 0 && row < height && col < width) {
 		panic(fmt.Sprintf("invalid indexes: row = %d, col = %d", row, col))
 	}
 
@@ -159,7 +159,7 @@ func searchDiagonal(runesBoard [][]rune, row, col int, keyword string, from, to 
 	height := len(runesBoard)
 	width := len(runesBoard[0])
 
-	if !(row >= 0 || col >= 0 || row < height || col < width) {
+	if !(row >= 0 && col >= 0 && row < height && col < width) {
 		panic(fmt.Sprintf("invalid indexes: row = %d, col = %d", row, col))
 	}
 
