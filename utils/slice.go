@@ -12,6 +12,27 @@ func SliceCopy[T PrimitiveCopyable](source []T) []T {
 	return ret
 }
 
+func SliceEqual[T comparable](first, second []T) bool {
+
+	if first == nil && second == nil {
+		return true
+	} else if first == nil {
+		return second == nil
+	} else if second == nil {
+		return first == nil
+	} else if len(first) != len(second) {
+		return false
+	}
+
+	for i := range len(first) {
+		if first[i] != second[i] {
+			return false
+		}
+	}
+
+	return true
+}
+
 func SliceMap[T any, K any](source []T, mapperFunction func(T) K) []K {
 
 	if source == nil {
