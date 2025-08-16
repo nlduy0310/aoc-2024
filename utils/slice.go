@@ -47,3 +47,27 @@ func SliceMap[T any, K any](source []T, mapperFunction func(T) K) []K {
 
 	return ret
 }
+
+// Returns the index of the first element to cause evalFunc to returns true. If none are found, returns -1.
+func SliceFindFirst[T any](slice []T, evalFunc func(T) bool) int {
+
+	for idx, t := range slice {
+		if evalFunc(t) {
+			return idx
+		}
+	}
+
+	return -1
+}
+
+// Returns the index of the last element to cause evalFunc to returns true. If none are found, returns -1.
+func SliceFindLast[T any](slice []T, evalFunc func(T) bool) int {
+
+	for idx := len(slice) - 1; idx >= 0; idx-- {
+		if evalFunc(slice[idx]) {
+			return idx
+		}
+	}
+
+	return -1
+}
