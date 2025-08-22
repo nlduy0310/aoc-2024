@@ -1,5 +1,7 @@
 package utils
 
+import "fmt"
+
 func SliceCopy[T PrimitiveCopyable](source []T) []T {
 
 	if source == nil {
@@ -70,4 +72,17 @@ func SliceFindLast[T any](slice []T, evalFunc func(T) bool) int {
 	}
 
 	return -1
+}
+
+func SliceInit[T any](length int, defaultValue T) []T {
+
+	Assert(length >= 0, fmt.Sprintf("invalid length %d", length))
+
+	ret := make([]T, length)
+
+	for idx := range length {
+		ret[idx] = defaultValue
+	}
+
+	return ret
 }
