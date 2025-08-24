@@ -1,6 +1,9 @@
 package utils
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 func SliceCopy[T PrimitiveCopyable](source []T) []T {
 
@@ -85,4 +88,18 @@ func SliceInit[T any](length int, defaultValue T) []T {
 	}
 
 	return ret
+}
+
+// Returns a copy of the filtered slice
+func SliceFilter[T any](source []T, keep func(T) bool) []T {
+
+	ret := make([]T, 0, len(source))
+
+	for i := range len(source) {
+		if keep(source[i]) {
+			ret = append(ret, source[i])
+		}
+	}
+
+	return slices.Clip(ret)
 }
