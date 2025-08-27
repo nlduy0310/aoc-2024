@@ -103,3 +103,19 @@ func SliceFilter[T any](source []T, keep func(T) bool) []T {
 
 	return slices.Clip(ret)
 }
+
+func SliceUnique[T comparable](source []T) []T {
+
+	uniqueSet := make(map[T]struct{})
+
+	for _, ele := range source {
+		uniqueSet[ele] = struct{}{}
+	}
+
+	ret := make([]T, 0, len(uniqueSet))
+	for k := range uniqueSet {
+		ret = append(ret, k)
+	}
+
+	return ret
+}

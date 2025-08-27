@@ -1,9 +1,25 @@
 package utils
 
+import "log"
+
 func PanicIf(err error) {
 
 	if err != nil {
 		panic(err)
+	}
+}
+
+func ExitIf(err error) {
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func ExitOn(cond bool, msg string) {
+
+	if cond {
+		log.Fatal(msg)
 	}
 }
 
